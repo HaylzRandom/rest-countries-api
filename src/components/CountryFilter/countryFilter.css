@@ -1,0 +1,13 @@
+.filter__select {
+    padding: 15px 30px;
+    margin-bottom: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.option {
+    font-weight: 600;
+}

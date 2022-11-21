@@ -1,0 +1,32 @@
+.countryList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5em;
+    /* width: 650px; */
+}
+
+
+.country__search {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    /* grid-template-columns: repeat(2, 1fr); */
+}
+
+.searchBar {
+    justify-self: flex-start;
+}
+
+.filter {
+    justify-self: flex-end;
+}
+
+
+.country__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 75px;
+
+}
