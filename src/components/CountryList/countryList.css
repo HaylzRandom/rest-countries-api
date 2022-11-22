@@ -1,18 +1,15 @@
 .countryList {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5em;
-    /* width: 650px; */
+    padding: 48px 80px;
 }
 
 
 .country__search {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
-    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 2em;
 }
 
 .searchBar {
@@ -26,7 +23,21 @@
 
 .country__grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
     gap: 75px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .country__search {
+        flex-direction: column;
+        /* width: 100%; */
+        align-content: flex-start;
+    }
+
+    .country__grid {
+        gap: 3em;
+    }
 
 }
