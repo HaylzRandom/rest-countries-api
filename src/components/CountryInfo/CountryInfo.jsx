@@ -23,46 +23,51 @@ const CountryInfo = () => {
 				<div className='country__data'>
 					<h2 className='country__data--title'>Belgium</h2>
 					<ul className='country__data--list'>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Native Name: </span>Belgie
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Population: </span>11,319,511
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Region: </span>Europe
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Sub Region: </span>Western Europe
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Capital: </span>Brussels
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Top Level Domain: </span>.be
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Currencies: </span>Euro
-							</p>
-						</li>
-						<li>
-							<p className='country__data--info'>
-								<span className='strong'>Languages: </span>Dutch, French, German
-							</p>
-						</li>
+						<div className='left__list'>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Native Name: </span>Belgie
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Population: </span>11,319,511
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Region: </span>Europe
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Sub Region: </span>Western Europe
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Capital: </span>Brussels
+								</p>
+							</li>
+						</div>
+						<div className='right__list'>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Top Level Domain: </span>.be
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Currencies: </span>Euro
+								</p>
+							</li>
+							<li>
+								<p className='country__data--info'>
+									<span className='strong'>Languages: </span>Dutch, French,
+									German
+								</p>
+							</li>
+						</div>
 					</ul>
 					<div className='country__borders'>
 						<h3>Border Countries:</h3>
