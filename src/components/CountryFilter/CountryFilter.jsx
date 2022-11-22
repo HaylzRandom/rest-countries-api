@@ -1,10 +1,20 @@
 // Styles
+import { useState } from 'react';
 import './countryFilter.css';
 
-const CountryFilter = () => {
+const CountryFilter = ({ onSelect }) => {
+	const [selectValue, setSelectValue] = useState(null);
+
+	const handleSelect = (e) => {
+		const regionName = e.target.value;
+		onSelect(regionName);
+	};
+
 	return (
-		<select className='filter__select'>
-			<option className='option'>Filter by Region</option>
+		<select className='filter__select' onChange={handleSelect}>
+			<option className='option' defaultValue={true}>
+				Filter by Region
+			</option>
 			<option className='option' value='Africa'>
 				Africa
 			</option>

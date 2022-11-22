@@ -5,27 +5,35 @@ import flagImage from '../../assets/germany.png';
 
 import './countryCard.css';
 
-const CountryCard = () => {
+const CountryCard = ({ country }) => {
 	return (
 		<>
-			<div className='card'>
-				<div className='card__image'>
-					<img src={flagImage} alt='' />
-				</div>
+			<Link to={`/country/${country.name.common}`}>
+				<div className='card'>
+					<div className='card__image'>
+						<img
+							src={country.flags.svg}
+							alt={`Flag of ${country.name.common}`}
+						/>
+					</div>
 
-				<div className='card__data'>
-					<h2 className='card__data--title'>Germany</h2>
-					<p className='card__data--info'>
-						<span className='strong'>Population: </span>323,947,000
-					</p>
-					<p className='card__data--info'>
-						<span className='strong'>Region: </span>Europe
-					</p>
-					<p className='card__data--info'>
-						<span className='strong'>Capital: </span>Berlin
-					</p>
+					<div className='card__data'>
+						<h2 className='card__data--title'>{country.name.common}</h2>
+						<p className='card__data--info'>
+							<span className='strong'>Population: </span>
+							{new Intl.NumberFormat().format(country.population)}
+						</p>
+						<p className='card__data--info'>
+							<span className='strong'>Region: </span>
+							{country.region}
+						</p>
+						<p className='card__data--info'>
+							<span className='strong'>Capital: </span>
+							{country.capital}
+						</p>
+					</div>
 				</div>
-			</div>
+			</Link>
 		</>
 	);
 };
