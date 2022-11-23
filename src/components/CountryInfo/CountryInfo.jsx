@@ -69,25 +69,33 @@ const CountryInfo = () => {
 
 	// If no borders for country exists, borders = null
 	// Else: Create array from object and map through creating list items to display
+	// TODO: Research better way to do below
+	let borderArray;
+
 	const borders = country.map((country) => {
 		/* debugger; */
-		console.log('Country borders', country.borders);
+		/* console.log('Country borders', country.borders); */
 
-		if (country.borders !== undefined) {
-			console.log('Ping');
-			return Object.values(country.borders).map((border) => (
+		borderArray = Object.values(country.borders || {});
+
+		/* console.log('Temp array', borderArray.length); */
+
+		if (borderArray.length > 0) {
+			console.log('Hit');
+			return borderArray.map((border) => (
 				<li className='country__borders--country' key={nanoid()}>
 					{border}
 				</li>
 			));
-		} else return null;
+		} else {
+			return null;
+		}
 	});
 
-	console.table({
+	/* console.table({
 		Borders: borders,
 		BordersLength: borders.length,
-		Test: borders.values.toString(),
-	});
+	}); */
 
 	return (
 		<section className='country__info'>
@@ -115,7 +123,7 @@ const CountryInfo = () => {
 					<div className='country__container' key={nanoid()}>
 						<div className='country__image'>
 							<img
-								src={country.flags.svg}
+								src={country.flags.png}
 								alt={`Flag of ${country.name.common}`}
 							/>
 						</div>
@@ -177,14 +185,12 @@ const CountryInfo = () => {
 									</li>
 								</div>
 							</ul>
-							{borders !== null ? (
+							{borderArray.length ? (
 								<div className='country__borders'>
 									<h3>Border Countries:</h3>
 									<ul className='country__borders--list'>{borders}</ul>
 								</div>
-							) : (
-								<p>Test</p>
-							)}
+							) : null}
 						</div>
 					</div>
 				);
