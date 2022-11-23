@@ -26,12 +26,12 @@ import './countryList.css';
 
 const CountryList = () => {
 	const [countries, setCountries] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState('');
 
-	/* useEffect(() => {
+	useEffect(() => {
 		getAllCountries();
-	}, []); */
+	}, []);
 
 	// Will search by official name rather than common
 	const getByName = (name) => {

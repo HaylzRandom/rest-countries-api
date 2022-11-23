@@ -29,6 +29,24 @@ header h1 {
     line-height: 33px;
 }
 
+.theme__btn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.theme__btn--icon {
+    font-size: 20px;
+}
+
+.theme__btn--text {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
 @media screen and (max-width: 768px) {
     header h1 {
         font-size: 14px;

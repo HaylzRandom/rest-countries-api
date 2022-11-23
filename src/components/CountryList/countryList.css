@@ -4,7 +4,6 @@
     padding: 48px 80px;
 }
 
-
 .country__search {
     display: flex;
     justify-content: space-between;
@@ -45,9 +44,6 @@
     place-content: center;
 }
 
-.spinner {
-    width: ;
-}
 
 .errorMsg {
     display: flex;
