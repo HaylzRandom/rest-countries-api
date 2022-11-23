@@ -8,13 +8,16 @@
 .back-btn {
     cursor: pointer;
     background-color: transparent;
+    border: none;
+    box-shadow: 0px 0px 4px 1px hsla(0, 0%, 0%, 0.1);
+    padding: 0.5em 2em;
+}
+
+.back-btn > * {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.5em;
-    border: none;
-    box-shadow: 0px 0px 4px 1px hsla(0, 0%, 0%, 0.1);
-    padding: 0.5em 2em;
 }
 
 .country__container {
@@ -91,10 +94,25 @@
     font-weight: 600;
 }
 
+.currencies,
+.languages {
+    display: flex;
+    gap: 0.5em;
+}
+
+.country__data--currencies,
+.country__data--languages {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 0.5em;
+}
+
 .country__borders {
     display: flex;
-    align-items: center;
-    gap: 1em;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5em;
 }
 
 .country__borders--list {

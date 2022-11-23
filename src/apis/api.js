@@ -11,7 +11,6 @@ export const getCountries = async () => {
 
 export const getCountryByName = async (name) => {
 	const response = await api.get(`/name/${name}`);
-
 	return response.data;
 };
 

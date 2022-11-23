@@ -1,5 +1,9 @@
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { BiError } from 'react-icons/bi';
 
 // Development
 import countryFlag from '../../assets/germany.png';
@@ -7,78 +11,184 @@ import countryFlag from '../../assets/germany.png';
 // Styles
 import './countryInfo.css';
 
+// Components
+import Spinner from '../Spinner/Spinner';
+
+// API
+import { getCountryByName } from '../../apis/api';
+
 const CountryInfo = () => {
+	const [country, setCountry] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState('');
+
+	const { countryName } = useParams();
+
+	useEffect(() => {
+		setIsLoading(true);
+		getCountryByName(countryName)
+			.then((json) => {
+				/* debugger; */
+				setCountry(json);
+
+				setIsLoading(false);
+				setIsError('');
+			})
+			.catch((error) => {
+				setIsLoading(false);
+				if (error.response) {
+					if (error.response.status === 404) {
+						setIsError('Country not found');
+					} else {
+						setIsError(error.response.data);
+					}
+				} else if (error.request) {
+					setIsError(error.request);
+				} else {
+					setIsError(error.message);
+				}
+
+				setCountry([]);
+			});
+	}, [countryName]);
+
+	const languages = country.map((country) =>
+		Object.values(country.languages).map((language, idx, arr) => (
+			<li key={nanoid()}>
+				{language}
+				{idx != arr.length - 1 ? ',' : ''}
+			</li>
+		))
+	);
+
+	const currencies = country.map((country) =>
+		Object.values(country.currencies).map((currency) => (
+			<li key={nanoid()}>{currency.name}</li>
+		))
+	);
+
+	// If no borders for country exists, borders = null
+	// Else: Create array from object and map through creating list items to display
+	const borders = country.map((country) => {
+		/* debugger; */
+		console.log('Country borders', country.borders);
+
+		if (country.borders !== undefined) {
+			console.log('Ping');
+			return Object.values(country.borders).map((border) => (
+				<li className='country__borders--country' key={nanoid()}>
+					{border}
+				</li>
+			));
+		} else return null;
+	});
+
+	console.table({
+		Borders: borders,
+		BordersLength: borders.length,
+		Test: borders.values.toString(),
+	});
+
 	return (
 		<section className='country__info'>
 			<div className='btn-container'>
 				<button className='back-btn'>
-					<FontAwesomeIcon icon={faArrowLeft} />
-					Back
+					<Link to='/'>
+						<FontAwesomeIcon icon={faArrowLeft} />
+						Back
+					</Link>
 				</button>
 			</div>
-			<div className='country__container'>
-				<div className='country__image'>
-					<img src={countryFlag} alt='' />
-				</div>
-				<div className='country__data'>
-					<h2 className='country__data--title'>Belgium</h2>
-					<ul className='country__data--list'>
-						<div className='left__list'>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Native Name: </span>Belgie
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Population: </span>11,319,511
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Region: </span>Europe
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Sub Region: </span>Western Europe
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Capital: </span>Brussels
-								</p>
-							</li>
-						</div>
-						<div className='right__list'>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Top Level Domain: </span>.be
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Currencies: </span>Euro
-								</p>
-							</li>
-							<li>
-								<p className='country__data--info'>
-									<span className='strong'>Languages: </span>Dutch, French,
-									German
-								</p>
-							</li>
-						</div>
-					</ul>
-					<div className='country__borders'>
-						<h3>Border Countries:</h3>
-						<ul className='country__borders--list'>
-							<li className='country__borders--country'>France</li>
-							<li className='country__borders--country'>Germany</li>
-							<li className='country__borders--country'>Netherlands</li>
-						</ul>
-					</div>
-				</div>
+
+			<div className='message__container'>
+				{isLoading && !isError && <Spinner />}
+				{isError && !isLoading && (
+					<p className='errorMsg'>
+						<BiError className='errorMsg__icon' />
+						{isError}
+					</p>
+				)}
 			</div>
+
+			{country?.map((country) => {
+				return (
+					<div className='country__container' key={nanoid()}>
+						<div className='country__image'>
+							<img
+								src={country.flags.svg}
+								alt={`Flag of ${country.name.common}`}
+							/>
+						</div>
+						<div className='country__data'>
+							<h2 className='country__data--title'>{country.name.common}</h2>
+							<ul className='country__data--list'>
+								<div className='left__list'>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Official Name: </span>
+											{country.name.official}
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Population: </span>
+											{new Intl.NumberFormat().format(country.population)}
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Region: </span>
+											{country.region}
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Sub Region: </span>
+											{country.subregion}
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Capital: </span>
+											{country.capital}
+										</p>
+									</li>
+								</div>
+								<div className='right__list'>
+									<li>
+										<p className='country__data--info'>
+											<span className='strong'>Top Level Domain: </span>
+											{country.tld}
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info currencies'>
+											<span className='strong'>Currencies: </span>
+											<ul className='country__data--currencies'>
+												{currencies}
+											</ul>
+										</p>
+									</li>
+									<li>
+										<p className='country__data--info languages'>
+											<span className='strong'>Languages: </span>
+											<ul className='country__data--languages'>{languages}</ul>
+										</p>
+									</li>
+								</div>
+							</ul>
+							{borders !== null ? (
+								<div className='country__borders'>
+									<h3>Border Countries:</h3>
+									<ul className='country__borders--list'>{borders}</ul>
+								</div>
+							) : (
+								<p>Test</p>
+							)}
+						</div>
+					</div>
+				);
+			})}
 		</section>
 	);
 };
