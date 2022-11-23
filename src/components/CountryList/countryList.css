@@ -44,20 +44,6 @@
     place-content: center;
 }
 
-
-.errorMsg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-}
-
-.errorMsg__icon {
-    color: red;
-    font-size: 10rem;
-}
-
 .country__grid {
     display: grid;
     place-content: center;

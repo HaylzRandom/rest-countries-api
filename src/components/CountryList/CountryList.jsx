@@ -5,7 +5,7 @@ import {
 	faExclamationTriangle,
 	faRefresh,
 } from '@fortawesome/free-solid-svg-icons';
-import { BiError } from 'react-icons/bi';
+
 import FadeLoader from 'react-spinners/FadeLoader';
 
 // API
@@ -20,6 +20,7 @@ import CountryCard from '../CountryCard/Countrycard';
 import CountryFilter from '../CountryFilter/CountryFilter';
 import SearchBar from '../SearchBar/SearchBar';
 import Spinner from '../Spinner/Spinner';
+import Error from '../Error/Error';
 
 // Styles
 import './countryList.css';
@@ -102,7 +103,10 @@ const CountryList = () => {
 
 				<div className='filter__refresh'>
 					<CountryFilter onSelect={getByRegion} />
-					<button className='refresh__btn' onClick={getAllCountries}>
+					<button
+						className='refresh__btn'
+						onClick={getAllCountries}
+						title='Refresh Countries'>
 						<FontAwesomeIcon icon={faRefresh} />
 					</button>
 				</div>
@@ -110,12 +114,7 @@ const CountryList = () => {
 
 			<div className='message__container'>
 				{isLoading && !isError && <Spinner />}
-				{isError && !isLoading && (
-					<p className='errorMsg'>
-						<BiError className='errorMsg__icon' />
-						{isError}
-					</p>
-				)}
+				{isError && !isLoading && <Error isError={isError} />}
 			</div>
 
 			<div className='country__grid'>

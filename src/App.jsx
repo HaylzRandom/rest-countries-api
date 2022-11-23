@@ -5,6 +5,7 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 // Components
 import CountryList from './components/CountryList/CountryList';
 import CountryInfo from './components/CountryInfo/CountryInfo';
+import Error from './components/Error/Error';
 
 // Styles
 import './App.css';
@@ -24,6 +25,7 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<CountryList />} />
 					<Route path='/country/:countryName' element={<CountryInfo />} />
+					<Route path='*' element={<Error />} />
 				</Routes>
 			</main>
 		</>

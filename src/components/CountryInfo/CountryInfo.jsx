@@ -13,6 +13,7 @@ import './countryInfo.css';
 
 // Components
 import Spinner from '../Spinner/Spinner';
+import Error from '../Error/Error';
 
 // API
 import { getCountryByName } from '../../apis/api';
@@ -97,25 +98,24 @@ const CountryInfo = () => {
 		BordersLength: borders.length,
 	}); */
 
+	console.log(isError);
+
 	return (
 		<section className='country__info'>
-			<div className='btn-container'>
-				<button className='back-btn'>
-					<Link to='/'>
-						<FontAwesomeIcon icon={faArrowLeft} />
-						Back
-					</Link>
-				</button>
-			</div>
+			{!isError && !isLoading && (
+				<div className='btn-container'>
+					<button className='back-btn'>
+						<Link to='/'>
+							<FontAwesomeIcon icon={faArrowLeft} />
+							Back
+						</Link>
+					</button>
+				</div>
+			)}
 
 			<div className='message__container'>
 				{isLoading && !isError && <Spinner />}
-				{isError && !isLoading && (
-					<p className='errorMsg'>
-						<BiError className='errorMsg__icon' />
-						{isError}
-					</p>
-				)}
+				{isError && !isLoading && <Error isError={isError} />}
 			</div>
 
 			{country?.map((country) => {

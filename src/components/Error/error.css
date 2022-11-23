@@ -1,0 +1,44 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 5em;
+}
+
+.errorMsg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.errorMsg__icon {
+    color: red;
+    font-size: 10rem;
+}
+
+.home__btn {
+    cursor: pointer;
+    background-color: hsl(var(--clr-vry-light-gray));
+    color: inherit;
+    border: none;
+    padding: 2em 5em;
+    width: 100px;
+    height: 50px;
+    border-radius: 1000vw;
+    box-shadow: 0px 0px 4px 1px hsla(0, 0%, 0%, 0.1);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+}
+
+.home__btn:hover {
+    background-color: hsl(var(--clr-drk-gray));
+    box-shadow: 2px 2px 3px hsl(var(--clr-drk-gray));
+    color: white;
+}

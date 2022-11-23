@@ -10,7 +10,7 @@
 body {
     font-family: 'Nunito Sans', sans-serif;
     /* min-height: 100vh; */
-    color: hsl(var(--clr--vry-dark-blue));
+    color: hsl(var(--clr-vry-dark-blue));
     font-size: 14px;
     background-color: hsl(var(--clr-vry-light-gray));
 }
