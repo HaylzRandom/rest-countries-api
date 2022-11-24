@@ -9,6 +9,7 @@ const Error = ({ isError }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
+	// Will only fire if user is not on homepage and there is an API error
 	useEffect(() => {
 		if (isError && location.pathname !== '/') {
 			setTimeout(() => {
@@ -19,6 +20,7 @@ const Error = ({ isError }) => {
 
 	return (
 		<div className='error'>
+			{/* If not on homepage and no API error */}
 			{isError && location.pathname !== '/' && (
 				<>
 					<p className='errorMsg'>
@@ -29,6 +31,7 @@ const Error = ({ isError }) => {
 				</>
 			)}
 
+			{/* If on homepage and API error occurs */}
 			{isError && location.pathname === '/' && (
 				<>
 					<p className='errorMsg'>
@@ -39,6 +42,7 @@ const Error = ({ isError }) => {
 				</>
 			)}
 
+			{/* If on page that does not exist */}
 			{!isError && (
 				<>
 					<p className='errorMsg'>

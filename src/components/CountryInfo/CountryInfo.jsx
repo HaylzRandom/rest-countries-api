@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { BiError } from 'react-icons/bi';
 
 // Hooks
 import useTitle from '../../hooks/useTitle';
@@ -27,6 +26,7 @@ const CountryInfo = () => {
 
 	useTitle(`Frontend Mentor | ${countryName}`);
 
+	// Will fetch country data by name
 	useEffect(() => {
 		setIsLoading(true);
 		getCountryByName(countryName)
@@ -55,6 +55,7 @@ const CountryInfo = () => {
 			});
 	}, [countryName]);
 
+	// Loops through languages and add comma too all but last entry
 	const languages = country.map((country) =>
 		Object.values(country.languages).map((language, idx, arr) => (
 			<li key={nanoid()}>
@@ -64,6 +65,7 @@ const CountryInfo = () => {
 		))
 	);
 
+	// Loops through currencies object and produces a list item
 	const currencies = country.map((country) =>
 		Object.values(country.currencies).map((currency) => (
 			<li key={nanoid()}>{currency.name}</li>
@@ -79,7 +81,6 @@ const CountryInfo = () => {
 		borderArray = Object.values(country.borders || {});
 
 		if (borderArray.length > 0) {
-			console.log('Hit');
 			return borderArray.map((border) => (
 				<li className='country__borders--country' key={nanoid()}>
 					{border}

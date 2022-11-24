@@ -16,9 +16,8 @@
 
 body {
     font-family: 'Nunito Sans', sans-serif;
-    /* min-height: 100vh; */
     color: hsl(var(--clr-fg));
-    font-size: 14px;
+    font-size: 0.875rem;
     background-color: hsl(var(--clr-bg));
 }
 
@@ -28,11 +27,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 80px;
+    padding: 1.5em 5em;
 }
 
 header h1 {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 33px;
 }
 
@@ -47,7 +46,7 @@ header h1 {
 }
 
 .theme__btn--icon {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .theme__btn--text {
@@ -57,15 +56,15 @@ header h1 {
 
 @media screen and (max-width: 768px) {
     header h1 {
-        font-size: 14px;
+        font-size: 0.875rem;
         line-height: 20px;
     }
 
     .theme__btn--icon {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .theme__btn--text {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }

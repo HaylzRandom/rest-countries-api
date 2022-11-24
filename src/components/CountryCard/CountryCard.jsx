@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 
-// Development Purposes
-import flagImage from '../../assets/germany.png';
-
+// Styles
 import './countryCard.css';
 
 const CountryCard = ({ country }) => {

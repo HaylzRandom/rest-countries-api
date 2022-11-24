@@ -23,11 +23,6 @@
 }
 
 .country__container {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-areas:
-        'image data';
-    gap: 5em; */
     display: flex;
     column-gap: 5em;
 }
@@ -44,8 +39,6 @@
 .country__image img {
     border-radius: 10px;
     height: 400px;
-    /* width: 560px; */
-    /* height: 401px; */
 }
 
 .country__data {
@@ -59,7 +52,7 @@
 }
 
 .country__data--title {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 .country__data--list,
@@ -120,7 +113,7 @@
 .country__borders--list {
     display: flex;
     gap: 0.5em;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .country__borders--country {
@@ -151,11 +144,11 @@
     }
 
     .country__data {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .country__data--title {
-        font-size: 22px;
+        font-size: 1.375rem;
     }
 
     .country__data--list {
@@ -163,7 +156,7 @@
             'left'
             'right';
         gap: 3em;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .country__borders {

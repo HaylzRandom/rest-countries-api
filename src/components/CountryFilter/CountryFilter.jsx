@@ -1,9 +1,7 @@
 // Styles
-import { useState } from 'react';
 import './countryFilter.css';
 
 const CountryFilter = ({ onSelect }) => {
-	const [selectValue, setSelectValue] = useState(null);
 
 	const handleSelect = (e) => {
 		const regionName = e.target.value;

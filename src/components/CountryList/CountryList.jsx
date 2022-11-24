@@ -30,10 +30,12 @@ const CountryList = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState('');
 
+	// On load, fetch all countries to be displayed
 	useEffect(() => {
 		getAllCountries();
 	}, []);
 
+	// Search API for country by name endpoint
 	// Will search by official name rather than common
 	const getByName = (name) => {
 		setIsLoading(true);
@@ -61,6 +63,7 @@ const CountryList = () => {
 			});
 	};
 
+	// Using dropdown value, fetch country by region endpoint
 	const getByRegion = (regionName) => {
 		setIsLoading(true);
 		filterCountryByRegion(regionName)
@@ -70,7 +73,6 @@ const CountryList = () => {
 				setIsError('');
 			})
 			.catch((error) => {
-				console.log(error);
 				setIsLoading(false);
 				setIsError(error.message);
 				setTimeout(() => {
@@ -79,6 +81,7 @@ const CountryList = () => {
 			});
 	};
 
+	// Fetch all countries by all endpoint
 	const getAllCountries = () => {
 		setIsLoading(true);
 		getCountries()
@@ -88,7 +91,6 @@ const CountryList = () => {
 				setIsError('');
 			})
 			.catch((error) => {
-				console.log(error);
 				setIsLoading(false);
 				setIsError(error.message);
 			});
