@@ -4,7 +4,6 @@ import './countryFilter.css';
 const CountryFilter = ({ onSelect }) => {
 	const handleSelect = (e) => {
 		const regionName = e.target.value;
-		console.log(regionName);
 
 		if (regionName === 'default') {
 			return;
