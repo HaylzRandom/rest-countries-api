@@ -56,6 +56,7 @@ API."
 - [ ] Sort styling of drop down region selector
 - [ ] Reset region filter value when user search for a country
 - [ ] Implement use of Redux for state management
+- [ ] Apply full accessibility once researched more
 
 ## Demo
 
