@@ -59,7 +59,7 @@ API."
 
 ## Demo
 
-<img src="./screenshots/demo.gif.gif" alt="Demo Gif" width="500"  />
+<img src="./screenshots/demo.gif" alt="Demo Gif" width="700"  />
 
 ## Screenshots
 
@@ -68,44 +68,32 @@ API."
         <thead>Desktop</thead>
         <tr>
             <td>
-                <img src="./screenshots/desktop-homepage-screenshot.png" alt="Desktop Homepage Screenshot" width="400" height="100%" />
+                <img src="./screenshots/desktop-lightmode-screenshot.png" alt="Desktop Light Mode Screenshot" width="400" height="100%" />
             </td>
             <td>
-                <img src="./screenshots/desktop-destinations-screenshot.png" alt="Destinations Desktop Screenshot" width="400" />
+                <img src="./screenshots/desktop-darkmode-screenshot.png" alt="Desktop Dark Mode Screenshot" width="400" />
             </td>
         </tr>
-    </table>
-</p>
-
-<p align="center"> 
-    <table>
-        <thead>Tablet</thead>
         <tr>
             <td>
-                <img src="./screenshots/tablet-crew-screenshot.png" alt="Tablet Crew Screenshot" height="300" />
+                <img src="./screenshots/desktop-lightmode-country-screenshot.png" alt="Desktop Light Mode Country Screenshot" width="400" height="100%" />
             </td>
             <td>
-                <img src="./screenshots/tablet-technology-screenshot.png" alt="Technology Tablet Screenshot" height="300" />
+                <img src="./screenshots/desktop-darkmode-country-screenshot.png" alt="Desktop Dark Mode Country Screenshot" width="400" />
             </td>
         </tr>
     </table>
 </p>
 
-<p align="center"> 
+<p align="center">
     <table>
         <thead>Mobile</thead>
         <tr>
             <td>
-                <img src="./screenshots/mobile-homepage-navigation-screenshot.png" alt="Mobile Navigation Screenshot" height="300" />
+                <img src="./screenshots/mobile-darkmode-screenshot.png" alt="Mobile Darkmode Screenshot"  />
             </td>
             <td>
-                <img src="./screenshots/mobile-destinations-screenshot.png" alt="Destinations Mobile Screenshot" height="300" />
-            </td>
-            <td>
-                <img src="./screenshots/mobile-crew-screenshot.png" alt="Mobile Crew Screenshot" height="300" />
-            </td>
-            <td>
-                <img src="./screenshots/mobile-technology-screenshot.png" alt="Technology Mobile Screenshot" height="300" />
+                <img src="./screenshots/mobile-darkmode-country-screenshot.png" alt="Mobile Darkmode Country Screenshot" />
             </td>
         </tr>
     </table>
