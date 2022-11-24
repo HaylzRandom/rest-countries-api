@@ -14,7 +14,7 @@ import {
 import useTitle from '../../hooks/useTitle';
 
 // Components
-import CountryCard from '../CountryCard/Countrycard';
+import CountryCard from '../CountryCard/CountryCard';
 import CountryFilter from '../CountryFilter/CountryFilter';
 import SearchBar from '../SearchBar/SearchBar';
 import Spinner from '../Spinner/Spinner';
