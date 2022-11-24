@@ -2,15 +2,20 @@
 import './countryFilter.css';
 
 const CountryFilter = ({ onSelect }) => {
-
 	const handleSelect = (e) => {
 		const regionName = e.target.value;
+		console.log(regionName);
+
+		if (regionName === 'default') {
+			return;
+		}
+
 		onSelect(regionName);
 	};
 
 	return (
 		<select className='filter__select' onChange={handleSelect}>
-			<option className='option' defaultValue={true}>
+			<option className='option' value='default'>
 				Filter by Region
 			</option>
 			<option className='option' value='Africa'>
