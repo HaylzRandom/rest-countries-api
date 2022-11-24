@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { BiError } from 'react-icons/bi';
 
-// Development
-import countryFlag from '../../assets/germany.png';
+// Hooks
+import useTitle from '../../hooks/useTitle';
 
 // Styles
 import './countryInfo.css';
@@ -24,6 +24,8 @@ const CountryInfo = () => {
 	const [isError, setIsError] = useState('');
 
 	const { countryName } = useParams();
+
+	useTitle(`Frontend Mentor | ${countryName}`);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -74,12 +76,7 @@ const CountryInfo = () => {
 	let borderArray;
 
 	const borders = country.map((country) => {
-		/* debugger; */
-		/* console.log('Country borders', country.borders); */
-
 		borderArray = Object.values(country.borders || {});
-
-		/* console.log('Temp array', borderArray.length); */
 
 		if (borderArray.length > 0) {
 			console.log('Hit');
@@ -92,13 +89,6 @@ const CountryInfo = () => {
 			return null;
 		}
 	});
-
-	/* console.table({
-		Borders: borders,
-		BordersLength: borders.length,
-	}); */
-
-	console.log(isError);
 
 	return (
 		<section className='country__info'>

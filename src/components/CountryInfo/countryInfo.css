@@ -7,10 +7,12 @@
 
 .back-btn {
     cursor: pointer;
-    background-color: transparent;
+    background-color: hsl(var(--clr-bg-alt));
+    color: hsl(var(--clr-fg));
     border: none;
     box-shadow: 0px 0px 4px 1px hsla(0, 0%, 0%, 0.1);
-    padding: 0.5em 2em;
+    padding: 1em 2.5em;
+    border-radius: 6px;
 }
 
 .back-btn > * {
@@ -122,6 +124,7 @@
 }
 
 .country__borders--country {
+    background-color: hsl(var(--clr-bg-alt));
     box-shadow: 0px 0px 4px 1px hsla(0, 0%, 0%, 0.1);
     padding: 0.5em 1em;
 }

@@ -1,23 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-:root {
-    --clr-vry-drk-blue: 200, 15%, 8%;
-    --clr-drk-gray: 0, 0%, 52%;
-    --clr-vry-light-gray: 0, 0%, 98%;
-    --clr-white: 0, 0%, 100%;
+.light {
+    --clr-bg: 0, 0%, 98%;
+    --clr-bg-alt: 0, 0%, 100%;
+    --clr-fg: 200, 15%, 8%;
+    --clr-fg-alt: 0, 0%, 52%;
+}
+
+.dark {
+    --clr-bg: 207, 26%, 17%;
+    --clr-bg-alt: 209, 23%, 22%;
+    --clr-fg: 0, 0%, 100%;
+    --clr-fg-alt: 0, 0%, 100%;
 }
 
 body {
     font-family: 'Nunito Sans', sans-serif;
     /* min-height: 100vh; */
-    color: hsl(var(--clr-vry-dark-blue));
+    color: hsl(var(--clr-fg));
     font-size: 14px;
-    background-color: hsl(var(--clr-vry-light-gray));
+    background-color: hsl(var(--clr-bg));
 }
 
 header {
     width: 100%;
-    background-color: hsl(var(--clr-white));
+    background-color: hsl(var(--clr-bg-alt));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +39,7 @@ header h1 {
 .theme__btn {
     cursor: pointer;
     background-color: transparent;
+    color: hsl(var(--clr-fg));
     border: none;
     display: flex;
     align-items: center;
@@ -51,5 +59,13 @@ header h1 {
     header h1 {
         font-size: 14px;
         line-height: 20px;
+    }
+
+    .theme__btn--icon {
+        font-size: 16px;
+    }
+
+    .theme__btn--text {
+        font-size: 12px;
     }
 }

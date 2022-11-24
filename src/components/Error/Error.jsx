@@ -7,19 +7,13 @@ import './error.css';
 
 const Error = ({ isError }) => {
 	const navigate = useNavigate();
-
 	const location = useLocation();
-
-	console.table({
-		isError: isError,
-		Location: location,
-	});
 
 	useEffect(() => {
 		if (isError && location.pathname !== '/') {
 			setTimeout(() => {
 				navigate('/');
-			}, 10000);
+			}, 8000);
 		}
 	}, []);
 

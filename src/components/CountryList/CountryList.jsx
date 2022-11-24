@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faExclamationTriangle,
-	faRefresh,
-} from '@fortawesome/free-solid-svg-icons';
-
-import FadeLoader from 'react-spinners/FadeLoader';
+import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 
 // API
 import {
@@ -14,6 +9,9 @@ import {
 	getCountryByName,
 	filterCountryByRegion,
 } from '../../apis/api';
+
+// Hooks
+import useTitle from '../../hooks/useTitle';
 
 // Components
 import CountryCard from '../CountryCard/Countrycard';
@@ -26,6 +24,8 @@ import Error from '../Error/Error';
 import './countryList.css';
 
 const CountryList = () => {
+	useTitle('Frontend Mentor | REST Countries API');
+
 	const [countries, setCountries] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState('');
